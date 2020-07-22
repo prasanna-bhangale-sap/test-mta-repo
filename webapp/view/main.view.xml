@@ -1,0 +1,137 @@
+<mvc:View controllerName="com.ah.ut.UI5_Traininig.controller.main" xmlns:ui="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<VBox class="sapUiSmallMargin">
+							<f:Form id="FormDisplay354wide" editable="false">
+								<f:title>
+									<core:Title text="{i18n>headerTitle}"/>
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+										emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Organization Name">
+												<f:fields>
+													<!--<Text text="{masterModel>/orgDetail/orgName}"/>-->
+													<Input value="{masterModel>/orgDetail/orgName}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="PAN Number">
+												<f:fields>
+													<Text text="{masterModel>/orgDetail/PAN}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Website">
+												<f:fields>
+													<Text text="{masterModel>/orgDetail/website}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</VBox>
+						<Table id="empTable" inset="false" growing="true" growingThreshold="5" showNoData='false'>
+							<!--items="{empModel>/results}" -->
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>tblTitle}" level="H2"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="Employee ID"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="First Name"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true">
+									<Text text="Last Name"/>
+								</Column>
+							</columns>
+							<!--<items>-->
+							<!--	<ColumnListItem>-->
+							<!--		<cells>-->
+							<!--			<Input value="{empModel>EmployeeID}" valueState="Error"/>-->
+							<!--<Text text="{empModel>FirstName}"/>-->
+							<!--			<Text text="{path: 'empModel>FirstName', formatter: '.formatter.test'}"/>-->
+							<!--			<Text text=" {empModel>LastName}"/>-->
+							<!--		</cells>-->
+							<!--	</ColumnListItem>-->
+							<!--</items>-->
+						</Table>
+						<ScrollContainer height='20rem' vertical='true'>
+							<!-- To have fixed with and enable vertical scrolling of data table -->
+							<!-- Table to hold data, data ,data -->
+							<Table class='tableHdr' items="{empModel>/results}"  growing="true" growingThreshold="5" showNoData='false' growingScrollToLoad="true">
+								<!--  CSS class to hide the column header, otherwise we will have 2 headers. -->
+								<columns>
+									<!-- Dont need columns header, as upper table has already defined them. -->
+									<Column ></Column>
+									<Column ></Column>
+									<Column ></Column>
+									<!--<Column ></Column>-->
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Input value="{empModel>EmployeeID}" valueState="Error"/>
+											<!--<Text text="{empModel>FirstName}"/>-->
+											<Text text="{path: 'empModel>FirstName', formatter: '.formatter.test'}"/>
+											<Text text=" {empModel>LastName}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+						<!--<Table id="empTable" inset="false">-->
+						<!--	<headerToolbar>-->
+						<!--		<OverflowToolbar>-->
+						<!--			<Title text="{i18n>tblTitle}" level="H2"/>-->
+						<!--		</OverflowToolbar>-->
+						<!--	</headerToolbar>-->
+						<!--</Table>-->
+						<!--<ui:Table rows="{empModel>/results}" title="Products" visibleRowCount="7" cellClick="showPopover">-->
+						<!--	<ui:columns>-->
+						<!--		<ui:Column width="11rem">-->
+						<!--			<Label text="Employee ID"/>-->
+						<!--			<ui:template>-->
+						<!--				<Text text="{empModel>EmployeeID}" wrapping="false"/>-->
+						<!--			</ui:template>-->
+						<!--		</ui:Column>-->
+						<!--		<ui:Column width="11rem">-->
+						<!--			<Label text="First Name"/>-->
+						<!--			<ui:template>-->
+						<!--				<Input value="{empModel>FirstName}"/>-->
+						<!--			</ui:template>-->
+						<!--		</ui:Column>-->
+						<!--		<ui:Column width="6rem" hAlign="End">-->
+						<!--			<Label text="Last Name"/>-->
+						<!--			<ui:template>-->
+						<!--				<Label text="{empModel>LastName}"/>-->
+						<!--			</ui:template>-->
+						<!--		</ui:Column>-->
+						<!--	</ui:columns>-->
+						<!--</ui:Table>-->
+						<Button press="scrollTop" text="Top"></Button>
+						<Panel id='id-panelBottom' class="sapUiContentPadding" width="auto"></Panel>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button type="Accept" text="Show Model Data" press="showModel"/>
+							<Button type="Accept" text="Open Fragment" press="openFragment"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -1,0 +1,7 @@
+/* Enter your custom styles here */
+
+.sapUiTableCCnt {
+    height: 200px;
+    overflow-y: scroll;
+    min-height: 200px !important;
+}

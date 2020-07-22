@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ah.ut.UI5_Traininig.controller.xmlModel"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table id="idProductsTable" mode="SingleSelectMaster" items="{/Rowset/0/Row}">
+						<columns>
+							<Column>
+								<Label text="ID"/>
+							</Column>
+							<Column>
+								<Label text="Product"/>
+							</Column>
+							<Column>
+								<Label text="Category"/>
+							</Column>
+							<Column>
+								<Label text="WeightMeasure"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{ProductId}"/>
+									<Text text="{Name}"/>
+									<Text text="{Category}"/>
+									<Text text="{WeightMeasure}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

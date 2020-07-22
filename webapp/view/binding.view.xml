@@ -1,0 +1,55 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ah.ut.UI5_Traininig.controller.binding"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Type of Binding">
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="fLayout" binding="{/orgDetail}" editable="false" layout="ResponsiveGridLayout" title="{i18n>elementBinding}"
+							labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4"
+							emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="Organization Name"/>
+								<Text text="{orgName}"/>
+								<Label text="PAN Number"/>
+								<Text text="{PAN}"/>
+								<Label text="Website"/>
+								<Text text="{website}"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="fLayout1" editable="false" layout="ResponsiveGridLayout" title="{i18n>propertyBinding}" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="Organization Name"/>
+								<Text text="{propertyModel>/orgDetail/orgName}"/>
+								<Label text="PAN Number"/>
+								<Text text="{propertyModel>/orgDetail/PAN}"/>
+								<Label text="Website"/>
+								<Text text="{propertyModel>/orgDetail/website}"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="fLayout2" editable="false" layout="ResponsiveGridLayout" title="{i18n>aggBinding}" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<!--<List id="empList" items="{/results}">-->
+								<!--	<items>-->
+								<!--		<StandardListItem title="{EmployeeID}" description="{FirstName} {LastName}"/>-->
+								<!--	</items>-->
+								<!--</List>-->
+								<ComboBox id="empList" items="{ path: '/results' }">
+									<core:Item key="{EmployeeID}" text="{FirstName} {LastName}"/>
+								</ComboBox>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

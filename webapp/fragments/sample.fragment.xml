@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="Employee List">
+		<content>
+			<Table id="empTable" inset="false" items="{empModel>/results}">
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Employee ID"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="First Name"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="Last Name"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{empModel>EmployeeID}"/>
+							<Text text="{empModel>FirstName}"/>
+							<Text text="{empModel>LastName}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<endButton>
+			<Button text="Close" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
