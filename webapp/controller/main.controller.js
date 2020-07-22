@@ -174,7 +174,7 @@ sap.ui.define([
 				var selectedindex = oEvent.getParameter("rowIndex"); // selected Row Index
 				// Set Selected Row Editable
 				factCVTable.setRowEditable('test1', selectedindex); // 'edit' is feild name to which editable property is bound
-			})
+			}); //Semi colon added Git Hub
 		},
 
 		test: function () {
